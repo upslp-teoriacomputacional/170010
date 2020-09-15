@@ -25,8 +25,17 @@ Además de la implementación de las diferentes operaciones básicas de conjunto
 * Etc. 
 
 ## Código
+Como datos importantes, programar en F# significa utilizar la programación funcional, la cual se destaca por los siguientes puntos
+* Funciona como construcciones principales que se usan
+* Expresiones en lugar de instrucciones
+* Valores inmutables en variables
+* Programación declarativa a través de la programación imperativa
+* Uso de tabulaciónes en lugar de llaves
+* Se deja de implementar el uso de punto y coma ( ; ) al final de la linea de código
+
 
 ### _Datos personales en el codigo_
+En esta parte del codigo se documento con los datos personales de su servidora, asi como los datos del profesor y la institución.
 
     // Programa para realizar diferentes operaciones de conjuntos como en matemáticas
 
@@ -39,12 +48,16 @@ Además de la implementación de las diferentes operaciones básicas de conjunto
     * Matrícula: 170010
     *********************************************** ************************** *)
 ### _Creacion de tres conjuntos_
+Se crean conjuntos con su respectiva sintaxis a los cuales se les agrega la palabra clave `let`, la cual sirve para vincular un nombre a un valor o función.
+
     //  Define tres conjuntos
     let A = Set.ofSeq [ 1 .. 1.. 5 ]        //  Conjunto con "expresión de secuencia",
     let B = Set.ofSeq [ 3 .. 1.. 7 ]        //  indica en que valor empieza y termina.
     let C = Set.empty                   //  Creando un conjunto vacío usando Set.empty.
     
 ### _Creación de las funciones con las diferentes operaciones de los conjuntos_
+Se aclara la forma correcta de definir una función.
+
     (* ------------------------------------------------ ---------
     *  NOTA: Si desea crear una función que no tome ningún  
     *  parámetro, la forma correcta de hacerlo es:
@@ -53,6 +66,8 @@ Además de la implementación de las diferentes operaciones básicas de conjunto
     * ------------------------------------------------- --------*)
 
 ### _Función "pertenencia()"_
+Uso del método `Set.ofSeq` para comprobar si un elemento dado pertenece a un conjunto en especifico.
+
     //  Pertenencia
     let pertenencia () =                                                            
         let A = Set.ofSeq [ 1 .. 1.. 5 ]                                
@@ -60,6 +75,8 @@ Además de la implementación de las diferentes operaciones básicas de conjunto
         printfn "10 in A : %A" ( Set.contains 10 A )                    //  elemento dado está en el conjunto dado.
 
 ### _Función "transformarConj()"_
+Uso del método `Set.ofList` el cual permite crear un conjunto de una lista dada
+
     //  Convertir a un conjunto
     let transformarConj () =        
         let A = [ 1 .. 3 ]             //  Declaración de una lista
@@ -72,18 +89,25 @@ Además de la implementación de las diferentes operaciones básicas de conjunto
         printfn "The set C is : %A" conjuntoC
 
 ### _Función "quitar()"_
+Uso del método `Set.remove` el cual permite eliminar un elemento especifico de un conjunto dado, la sintaxis muestra que después de escribir el método se procede a colocar el número que se desea eliminar seguido del conjunto del que se quiere eliminar; en caso de no encontrar el elemento no sucede nada.
+
     //  Quitar un elemento al conjunto
     let quitar () =                 
         let A = Set.ofSeq [ 0 .. 1.. 5 ]                               //  Set.remove -> Devuelve un nuevo conjunto
         printfn "The set after to delete : %A" ( Set.remove 2 A )      //  con el elemento dado eliminado. 
 
 ### _Función "clearSet()"_
+Uso del método `Set.empy.Remove`. Aquí se hizo uso de dos métodos, ya que no existe un método para borrar todos los elementos de un conjunto. 
+Se indica que del conjunto A se remueven todos los elementos y se deja vacío.
+
     //  Quitar todos los elementos de un conjunto
     let  clearSet () =                                                 
         let A = Set.ofSeq [ 0 .. 1.. 5 ]                               //  Set.empty.Remove -> Elimina todos los                
         printfn "The set clear: %A" ( Set.empty.Remove A )             //  elementos de un conjunto.
 
 ### _Función "copiar()"_
+Uso del método `Set.ofSeq` para crear un conjunto que contenga los valores de un conjunto dado.
+
     //  Copiar un conjunto
     let copiar () =
         let A = Set.ofSeq [ 1 .. 1.. 5 ]                               //  Debido a que no existe una operación para
@@ -92,6 +116,8 @@ Además de la implementación de las diferentes operaciones básicas de conjunto
         printfn "compare set B = %A" B                                 //  quiere copiar.
 
 ### _Función "agregar()"_
+Uso del metodo `.add`, el cual permite agregar un elemento nuevo a un conjunto dado.
+
     //  Agregar un elemento
     let agregar () =
         let B =  B.Add(987)                                            //  Add -> Devuelve un nuevo conjunto con un 
@@ -101,6 +127,8 @@ Además de la implementación de las diferentes operaciones básicas de conjunto
     //  OPERACIONES DE CONJUNTO
 
 ### _Función "union()"_
+Uso del método `Set.union` que permite unir los conjuntos que se le indiquen a dicho metodo, además se puede hacer uso del signo de la adicción para realizar tal acción.
+
     //  Unión
     let union () =
         let A = Set.ofSeq [ 1 .. 1.. 5 ]
@@ -109,6 +137,8 @@ Además de la implementación de las diferentes operaciones básicas de conjunto
         printfn "The union = %A" ( A + B )                             //  el signo de adición (+).
 
 ### _Función "interseccion()"_
+Uso del método `Set.intersect` que permite calcular la intersección de dos conjuntos.
+
     //  Interseccion
     let intereseccion () =
         let A = Set.ofSeq [ 1 .. 1.. 5 ]
@@ -116,6 +146,8 @@ Además de la implementación de las diferentes operaciones básicas de conjunto
         printfn "The intereseccion = %A" ( Set.intersect A B )         //  de los dos conjuntos.
 
 ### _Función "diferencia()"_
+Uso del método `Set.difference` para permitir calcular la diferencia entre dos conjuntos, a su vez se puede hacer uso del signo de la sustracción para realizar tal acción. 
+
     //  Diferencia 
     let diferencia () =
         let A = Set.ofSeq [ 1 .. 1.. 5 ]                               //  Set.difference -> Devuelve un nuevo 
@@ -124,6 +156,8 @@ Además de la implementación de las diferentes operaciones básicas de conjunto
         printfn "The diference = %A" ( A - B )                         //  puede emplear el signo de sustracción (-).
 
 ### _Función "simetrica()"_
+En este caso se hizo uso de las técnicas de unión y sustraccion, debido a que no existe un metodo para realizar tal acción.
+
     //  Diferencia simetrica 
     let simetrica () =
         let A = Set.ofSeq [ 1 .. 1.. 5 ]                               //  Dado que no existe una operacion para la 
@@ -135,6 +169,8 @@ Además de la implementación de las diferentes operaciones básicas de conjunto
         printfn "The symmetric_differenc B^C= %A" ( ( B - C ) + ( C - A ) )
 
 ### _Función "subconjunto()"_
+Uso del método `Set.isSubset` para indicar si existe este tipo de relación entre los dos conjuntos. Regresa un True o False
+
     //  Subconjunto
     let subconjunto () =                                                
         let B = Set.ofSeq [ 0 .. 1.. 9 ]                               
@@ -143,6 +179,8 @@ Además de la implementación de las diferentes operaciones básicas de conjunto
         printfn "The subset = %A" ( Set.isSubset B A )                 //  están en el segundo.
 
 ### _Función "superconjunto()"_
+Uso del método `Set.isSuperset` para indicar si existe este tipo de relación entre los dos conjuntos. Regresa un True o False
+
     //  Superconjunto
     let superconjunto () =
         let B = Set.ofSeq [ 0 .. 1.. 9 ]
@@ -151,6 +189,8 @@ Además de la implementación de las diferentes operaciones básicas de conjunto
         printfn "The superset = %A" ( Set.isSuperset A B )             //  están en el primero.
 
 ### _Llamado a las funciones_
+Se realiza el lladado de las funciones mediante la sintaxis `System.Console.WriteLine( nombre_Funcion () )`
+
     (* ------------------------------------------------ ---------
     *  Llamado a las funciones
     * ------------------------------------------------- --------*)
