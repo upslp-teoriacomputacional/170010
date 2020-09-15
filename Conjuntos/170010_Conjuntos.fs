@@ -1,4 +1,4 @@
-﻿//  Programa para realizar diferentes operaciones de conjuntos como en matemáticas
+﻿//  Programa en F# para realizar diferentes operaciones de conjuntos como en matemáticas
 
 (* *****************************************************************************
 *  Nombre:  Diana
