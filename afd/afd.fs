@@ -8,6 +8,7 @@
 *  Institución:  Universidad Politecnica de San Luis Potosí (UPSLP) 
 *  Matricula:  170010
 **************************************************************************** *)
+
 //  Abrimos el sistema
 open System
 open System.Text.RegularExpressions 
@@ -45,12 +46,10 @@ let contenido ( estadosig, character, simbolo, estado ) =
 //  Solo muestra la linea que se repetira cada vez que la mandemos a llamar
     body()
 
-
 //  Definicion de la funcion del encabezado
 let encabezado() =
     printfn "|  Edo. Actual  |  Caracter  |    Simbolo     |  Edo. Siguiente  |"
     body()
-
 
 //MAIN
 //tabla de transiciones del automata AFD creado 
@@ -73,8 +72,7 @@ for character in cadena do
     charcaracter <- caracter( string character )
     //  Guardamos en estado el valor obtenido en la tabla segun las coordenadas que recibio anteriormente
     estado <- tabla.[ estado ].[ charcaracter ]
-
-
+    
 
     if( estado = 7 )then
         let estado = "E"
