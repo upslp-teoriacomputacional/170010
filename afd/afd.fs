@@ -1,4 +1,4 @@
-﻿//Creacion de un ejemplo de F# Program Finite Automaton
+//Creacion de un ejemplo de F# Program Finite Automaton
 
 (* *****************************************************************************
 *  Nombre:  Diana
@@ -28,13 +28,13 @@ let caracter ( character ) : int =
         simbolo <- " Digito "
         0
     elif Regex.IsMatch ( character, operador ) then
-        simbolo <- " Operador "
+        simbolo <- "Operador"
         1
     elif character = Fin then
         2
     else 
         printf "Error no es valido el caracter %A" character
-        9
+        exit(9)
 
 let body()=
     printfn "+---------------+------------+----------------+------------------+"
@@ -54,7 +54,7 @@ let encabezado() =
 
 //MAIN
 //tabla de transiciones del automata AFD creado 
-let tabla = [ [ 1; 7; 7 ]; [ 1; 2; 7 ]; [ 3; 7; 7 ]; [ 3; 2; 200]]
+let tabla = [ [ 1; 7; 7 ]; [ 7; 2; 7 ]; [ 3; 7; 7 ]; [ 7; 7; 9]]
 let mutable estado = 0
 
 printfn "         +------------------------------+ \n
@@ -73,18 +73,23 @@ for character in cadena do
     charcaracter <- caracter( string character )
     //  Guardamos en estado el valor obtenido en la tabla segun las coordenadas que recibio anteriormente
     estado <- tabla.[ estado ].[ charcaracter ]
+
+
+
     if( estado = 7 )then
-        printfn "|       %A       |    %A     |  %A    |        %A         |" estadosig character simbolo estado
+        let estado = "E"
+        printfn "|       %A       |    %A     |   %A   |        %A       |" estadosig character simbolo estado
         body()
         printfn "|                       Cadena No Valida                         |"
         printfn "+----------------------------------------------------------------+"
+        exit(9)
     contenido( estadosig, character, simbolo, estado )
 
     //  Al concluir si el estado no es 3 que es el de aceptacion imprimimos cadena no valida
 if( not ( estado.Equals( 3 ) ) ) then
     printfn "|                       Cadena No Valida                         |"
     printfn "+----------------------------------------------------------------+"
-
+    
     //  Si el estado 3 es una cadena de aceptación
 if( estado.Equals( 3 ) ) then
     printfn "|       %A       |            |   Fin Cadena   |                  |" estado
