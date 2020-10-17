@@ -20,11 +20,11 @@ Por lo tanto, de acuerdo al concepto anterior en este programa se busca modifica
      
 El automata creado de esta expresión regular es el siguiente 
 
-<img src="images/Automata.png">
+<img src="images/Automata.PNG">
 
 Y esta su tabla de transiciones
 
-<img src="images/Automata1.png">
+<img src="images/Automata1.PNG">
 
 
 ## Codigo
@@ -204,7 +204,7 @@ Y esta su tabla de transiciones
 
 En el automata establecido por el profesor de la materia, para la expresion regular ` a*ba* ` crea la siguiente tabla de transiciones:
 
-<img src="images/Automata1.png">
+<img src="images/Automata1.PNG">
 
 Pero en el momento de codificar no se pueden emplear varios estados dentro de la transicion, por lo que se propuso esta nueva tabla de transiciones que siguiera cumpliendo las condiciones de la anterior, pero que se adaptara a las necesidades de la codificación: 
     
