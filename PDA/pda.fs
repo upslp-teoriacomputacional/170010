@@ -1,4 +1,4 @@
-﻿// Creacion de un ejemplo de F# Program Finite Automaton // Automata de Pila
+// Creacion de un ejemplo de F# Program Finite Automaton // Automata de Pila
 
 (* *****************************************************************************
 *  Nombre:  Diana
